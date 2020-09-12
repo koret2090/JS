@@ -6,7 +6,7 @@ function create(surname, age, array){
     kid["age"] = age;
 
     let flag = 1;
-    for (let i = 0; i < array.length; i++){
+    for (let i = 0; i < array.length && flag; i++){
         if (array[i]["surname"] === surname)
             flag = 0;
     }
@@ -20,21 +20,26 @@ function create(surname, age, array){
 function read(surname, array){
     let i = 0;
     for (; i < array.length; i++)
+    {
         if (surname === array[i]["surname"])
         {
             console.log("Age: " + array[i]["age"]);
             break;
         }
-    
+    }
     if (i === array.length)
         console.log("There is no " + surname + " in array");
 }
 
 // change kid's age
 function update(surname, new_age, array){
-    for (let i = 0; i < array.length; i++)
+    for (let i = 0; i < array.length; i++){
         if (surname === array[i]["surname"])
+        {
             array[i]["age"] = new_age;
+            break;
+        }
+    }
 }
 
 function del(index, array){
@@ -130,7 +135,6 @@ kid4["surname"] = "Green";
 kid4["age"] = 10;
 
 let children = [];
-let amount = 4;
 
 children.push(kid1);
 children.push(kid2);
