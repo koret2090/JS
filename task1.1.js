@@ -41,14 +41,25 @@ function update(surname, new_age, array){
         }
     }
 }
-
+/*
 function del(index, array){
     if (index < array.length)
         array.splice(index, 1); // c какого и сколько
     else
         console.log("There is no kid by this index");
 }
+*/
 
+function del(surname, array){
+    let i = 0
+    for (; i < array.length; i++){
+        if (surname === array[i]["surname"]){
+            array.splice(i, 1); // c какого и сколько
+        }
+    }
+    if (i === array.length)
+        console.log("There is no kid by this surname");
+}
 //////////////////////////////////////////////////////////////
 
 function get_avrg_age(array){

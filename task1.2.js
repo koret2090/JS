@@ -59,13 +59,16 @@ function update(student_card, group, marks, array){
     }
 }
 
-function del(index, array){
-    if (index < array.length)
-        array.splice(index, 1); // c какого и сколько
-    else
-        console.log("There is no kid by this index");
+function del(student_card, array){
+    let i = 0
+    for (; i < array.length; i++){
+        if (student_card === array[i]["student_card"]){
+            array.splice(i, 1); // c какого и сколько
+        }
+    }
+    if (i === array.length)
+        console.log("There is no student by this student_card");
 }
-
 //////////////////////////////////////////////////////////////
 
 function get_student_avrg_marks(student){
@@ -128,7 +131,7 @@ st4["student_card"] = 10100;
 st4["marks"] = [5, 5, 4, 5, 5];
 
 
-let stream = [st1, st2, st3, st4]
+let stream = [st1, st2, st3, st4];
 
 read(10000, stream);
 
