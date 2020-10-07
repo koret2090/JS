@@ -15,7 +15,7 @@ function check_folder(folder){
     const names = fs.readdirSync(folder);
     for (let i = 0; i < names.length; i++){
         if (format_check(names[i], "txt")){
-            if (fs.readFileSync(folder + "/" + names[i], "utf8").length < 10)
+            if (fs.readFileSync(folder + "/" + names[i], "utf8").length <= 10)
                 console.log(folder + "/" + names[i]);
         }
         else
@@ -24,4 +24,5 @@ function check_folder(folder){
 }
 
 const folder = "./folderTASK4";
+console.log("F I L E S\n");
 check_folder(folder);
