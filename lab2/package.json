@@ -2,9 +2,9 @@
   "name": "lab2",
   "version": "1.0.0",
   "description": "",
-  "main": "task4.js",
+  "main": "task5.js",
   "scripts": {
-    "start": "node task4.js"
+    "start": "node task5.js"
   },
   "keywords": [],
   "author": "",
