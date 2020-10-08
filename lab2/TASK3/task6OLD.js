@@ -12,24 +12,28 @@ function max_lvl_nesting(object){
     return lvl;
 }
 
+let super_small_obj = {
+    field1111: 1,
+}
+
 let small_obj1 = {
-    field1: 1,
-    field2: 2,
+    field111: 1,
+    field222: 2,
 };
 
 let small_obj2 = {
-    field1: 1,
-    field2: 2,
+    field111: 1,
+    field222: super_small_obj,
 };
 
 let small_obj3 = {
-    field1: 1,
-    field2: 2,
+    field111: 1,
+    field222: 2,
 };
 
 let obj = {
-    field1: small_obj1,
-    field2: small_obj2,
+    field11: small_obj1,
+    field22: small_obj2,
 };
 
 let big_obj = {
@@ -39,3 +43,8 @@ let big_obj = {
 };
 
 console.log("MAX LVL:", max_lvl_nesting(big_obj));
+
+//let string = JSON.stringify(big_obj, null, 4);
+
+//const fs = require("fs");
+//fs.writeFileSync("file7.txt",string);

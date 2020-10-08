@@ -1,0 +1,29 @@
+{
+    "field1": 1,
+    "field2": {
+        "field11": {
+            "field111": {
+                "w": {
+                    "w": 1
+                }
+            },
+            "field222": {
+                "was": {
+                    "as": {
+                        "dg": {
+                            "asf": 1
+                        }
+                    }
+                }
+            }
+        },
+        "field22": {
+            "field111": 1,
+            "field222": 2
+        }
+    },
+    "field3": {
+        "field111": 1,
+        "field222": 2
+    }
+}
