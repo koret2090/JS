@@ -1,0 +1,42 @@
+[
+    {
+        "group": 1,
+        "student_card": 10000,
+        "marks": [
+            5,
+            4,
+            4,
+            5,
+            5
+        ]
+    },
+    {
+        "group": 2,
+        "student_card": 10001,
+        "marks": []
+    },
+    {
+        "group": 1,
+        "student_card": 10011,
+        "marks": [
+            5,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5
+        ]
+    },
+    {
+        "group": 1,
+        "student_card": 10100,
+        "marks": [
+            5,
+            5,
+            4,
+            5,
+            5
+        ]
+    }
+]
