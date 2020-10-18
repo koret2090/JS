@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Игры</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    
+<h2>
+    {{description_value}}
+</h2>
+
+{{#each selected_games}}
+    <div style="background: rgb(59, 206, 103); margin-bottom: 15px; padding: 8px;">
+        Название: {{this.name}} 
+        <br>
+        Описание: {{this.description}}
+        <br>
+        Возрастной рейтинг: {{this.age_rating}} 
+    </div>
+{{/each}}
+
+</body>
+</html>
