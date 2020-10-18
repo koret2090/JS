@@ -4,6 +4,7 @@
 const express = require("express");
 const fs = require("fs");
 
+let base = [];
 let mails = [];
 let phone_numbers = [];
 load_base();
@@ -13,27 +14,47 @@ function load_base(){
     strings = strings.split('\n');
     for (let i = 0; i < strings.length; i++){
         let string = strings[i].split(',');
-        mails.push(string[0]);
-        phone_numbers.push(string[1]);
+        let obj = {
+            mail: string[0],
+            surname: string[1],
+            number: string[2]
+        };
+        base.push(obj);
     }
 }
 
-function add_to_base(mail, phone){
-    let string = mail + ',' + phone + '\n';
+function add_to_base(mail, surname, phone){
+    let string = mail + ',' + surname + ',' + phone + '\n';
     fs.appendFileSync("base.txt", string);
 }
 
-function unique_check(mail, number){
-    for (let i = 0; i < mails.length; i++){
-        if (mail === mails[i] || number === phone_numbers[i]){
+function unique_check(mail, number, surname){
+    for (let i = 0; i < base.length; i++){
+        if (mail === base[i]["mail"] || number === base[i]["number"]){
             return 0;
         }
     }
-    mails.push(mail);
-    phone_numbers.push(number);
+    let obj = {
+        mail: mail,
+        surname: surname,
+        number: number
+    };
+    base.push(obj);
+
     return 1;
 }
 
+
+function find_by_mail(mail){
+    let answer = "Нет пользователя с такой почтой";
+    for (let i = 0; i < base.length; i++){
+        if (mail === base[i]["mail"]){
+            answer = "\nSurname: " + base[i]["surname"] + "\nPhone number: " + base[i]["number"];
+            break;
+        }
+    }
+    return answer;
+}
 
 
 // запускаем сервер
@@ -76,9 +97,9 @@ app.post("/save/info", function(request, response) {
         const contentString = `Mail: ${mail} Surname: ${surname} Phone: ${number}` + '\n';
 
         // здесь будет ф-ия проверки
-        let flag = unique_check(mail, number);
+        let flag = unique_check(mail, number, surname);
         if (flag){
-            add_to_base(mail, number);
+            add_to_base(mail, surname, number);
             fs.appendFileSync("file.txt", contentString);
             response.end(JSON.stringify({
             result: "SAVED"
@@ -90,4 +111,12 @@ app.post("/save/info", function(request, response) {
         }));
         }
     });
+});
+
+app.get("/check", function(request, response) {
+    const mail_for_info = request.query.mail;
+    const ans = find_by_mail(mail_for_info);
+    response.end(JSON.stringify({
+        result: ans
+    }));
 });

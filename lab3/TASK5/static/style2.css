@@ -1,0 +1,14 @@
+body {
+    padding: 30px;
+    background: rgb(38, 115, 216);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.btn-class {
+    padding: 6px;
+    background: rgb(236, 6, 6);
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+}
+
