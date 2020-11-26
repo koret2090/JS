@@ -2,9 +2,8 @@
 
 // получаем параметры скрипта
 const valueA = "" + process.argv[2];
-const valueB = "" + process.argv[3];
 let string = "";
-for (let i = 3; i < process.argv.length; i++)
+for (let i = 2; i < process.argv.length; i++)
     string += process.argv[i] + ' ';
 
 // импортируем библиотеку

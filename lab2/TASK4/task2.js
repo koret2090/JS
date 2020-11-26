@@ -53,8 +53,8 @@ app.get("/calculate/sum", function(request, response) {
     
     const index = request.query.index;
     const indexInt = parseInt(index);
-    if (index < object.len){
-        const answerJSON = JSON.stringify(object[index]);
+    if (indexInt < object.length){
+        const answerJSON = JSON.stringify(object[indexInt]);
         response.end(answerJSON);
     }
     else{

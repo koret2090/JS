@@ -1,5 +1,5 @@
 "use strict";
-
+//http://localhost:5015/me/page?p=a.html
 const fs = require("fs");
 
 const express = require("express");
@@ -20,7 +20,7 @@ app.get("/me/page", function(request, response) {
     }
 });
 
-app.get("/calculate/sum", function(request, response) {
+app.get("/calculate/array", function(request, response) {
     const a = request.query.a;
     const b = request.query.b;
     const c = request.query.c;
